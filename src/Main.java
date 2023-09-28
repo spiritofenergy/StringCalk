@@ -12,6 +12,7 @@ public class Main {
             if(exp.contains("+")){
                 data = exp.split("\\+");
                 action = '+';
+                // data = new String[]{exp.replace("\"", "")};
             }else if (exp.contains(" - ")){
                 data = exp.split(" - ");
                 action = '-';
@@ -29,8 +30,9 @@ public class Main {
             if (action == '*' || action == '/'){
                 if (data[1].contains("\""))throw new Exception("Стрку можно делить или умножить только на число");
             }
+            // Убираем пробелы
             for (int i = 0; i < data.length; i++){
-                data[i] = data[i].replace("\"", "");
+                data[i] = data[i].replace(" ", "");
             }
             if (action == '+'){
                 printInQuotes(data[0] + data[1]);
